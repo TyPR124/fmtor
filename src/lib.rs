@@ -253,7 +253,7 @@ where
     }
 }
 
-impl<'t, 's, T, F, U> $Trait for MaybeFormatOrElse<'t, T, F>
+impl<'t, T, F, U> $Trait for MaybeFormatOrElse<'t, T, F>
 where
     T: $Trait,
     F: Fn() -> U,
