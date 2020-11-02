@@ -1,0 +1,19 @@
+[package]
+name = "fmtor"
+version = "0.1.0"
+authors = ["Tyler Ruckinger <t.ruckinger@gmail.com>"]
+edition = "2018"
+
+description = "Formatting combinators for Options"
+documentation = "https://docs.rs/fmtor"
+repository = "https://github.com/TyPR124/fmtor"
+keywords = ["format", "option", "combinator", "extension", "no_std"]
+
+readme = "README.md"
+license = "MIT OR Apache-2.0"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+# nada
+
