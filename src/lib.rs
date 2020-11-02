@@ -194,7 +194,7 @@ pub trait FmtOr<T> {
     ///
     /// assert_eq!(
     ///     "42",
-    ///     format!("{}", foo.fmt_or_else(||format!("{}: {}", missing_msg, missing_item)))
+    ///     format!("{}", foo.fmt_or_else(||format!("{} {}", missing_msg, missing_item)))
     /// );
     /// assert_eq!(
     ///     "Missing bar",
