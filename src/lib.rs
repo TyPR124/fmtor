@@ -3,7 +3,7 @@
 #![warn(missing_docs)]
 //! # fmtor
 //!
-//! See [`fmtor::FmtOr`]
+//! See the [`FmtOr`] trait.
 //!
 //! # Examples
 //!
@@ -178,6 +178,10 @@ pub trait FmtOr<T> {
     ///
     /// The returned value must implement [`Display`]
     /// regardless of which formatting is used on the original value.
+    ///
+    /// The value returned from the closure is not stored after use. Therefore, using a single
+    /// [`MaybeFormatOrElse`] object for multiple formatting operations will run the closure
+    /// multiple times.
     ///
     /// # Example
     ///
