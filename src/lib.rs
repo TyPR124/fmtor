@@ -3,7 +3,7 @@
 #![warn(missing_docs)]
 //! # fmtor
 //!
-//! See [`fmtor::FmtOr`](trait.FmtOr.html)
+//! See [`fmtor::FmtOr`]
 //!
 //! # Examples
 //!
@@ -43,12 +43,12 @@ use core::fmt::{
     Binary, Debug, Display, Formatter, LowerExp, LowerHex, Octal, Pointer, Result, UpperExp,
     UpperHex,
 };
-/// The type returned from [`fmt_or_empty`](trait.FmtOr.html#tymethod.fmt_or_empty)
+/// The type returned from [`FmtOr::fmt_or_empty`]
 #[derive(Eq, PartialEq)]
 pub struct MaybeFormat<'t, T>(&'t Option<T>);
-/// The type returned from [`fmt_or`](trait.FmtOr.html#tymethod.fmt_or)
+/// The type returned from [`FmtOr::fmt_or`]
 pub struct MaybeFormatOr<'t, T, U>(&'t Option<T>, U);
-/// The type returned from [`fmt_or_else`](trait.FmtOr.html#tymethod.fmt_or_else)
+/// The type returned from [`FmtOr::fmt_or_else`]
 pub struct MaybeFormatOrElse<'t, T, F>(&'t Option<T>, F);
 
 impl<'t, T> Copy for MaybeFormat<'t, T> {}
@@ -127,9 +127,6 @@ impl<'t, T, F: Clone> Clone for MaybeFormatOrElse<'t, T, F> {
 /// .start();
 /// ```
 ///
-/// [`Option<T>`]: https://doc.rust-lang.org/std/option/enum.Option.html
-/// [`None`]: https://doc.rust-lang.org/std/option/enum.Option.html#variant.None
-/// [`Display`]: https://doc.rust-lang.org/core/fmt/trait.Display.html
 #[allow(clippy::needless_lifetimes)] // They're nice to see in docs
 pub trait FmtOr<T> {
     /// Format the value, if there is one, or display an empty string instead.
@@ -154,7 +151,7 @@ pub trait FmtOr<T> {
     fn fmt_or_empty<'t>(&'t self) -> MaybeFormat<'t, T>;
     /// Format the value, if there is one, or display the given value instead.
     ///
-    /// The given value must implement [`Display`](https://doc.rust-lang.org/std/fmt/trait.Display.html)
+    /// The given value must implement [`Display`]
     /// regardless of which formatting is used on the original value.
     ///
     /// # Example
@@ -179,7 +176,7 @@ pub trait FmtOr<T> {
         U: Display;
     /// Format the value, if there is one, or run the closure to get a value to display instead.
     ///
-    /// The returned value must implement [`Display`](https://doc.rust-lang.org/std/fmt/trait.Display.html)
+    /// The returned value must implement [`Display`]
     /// regardless of which formatting is used on the original value.
     ///
     /// # Example
